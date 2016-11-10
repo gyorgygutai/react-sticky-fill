@@ -1,0 +1,24 @@
+{
+  "name": "react-sticky-fill",
+  "version": "0.0.0",
+  "homepage": "",
+  "authors": [
+    "Gyorgy Gutai"
+  ],
+  "description": "A ReactJS wrapper for position:sticky elements using Stickyfill",
+  "main": "dist/react-stickyfill.js",
+  "keywords": [
+    ""
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "**/__tests__",
+    "build",
+    "examples",
+    "lib",
+    "node_modules",
+    "package.json",
+    "CONTRIBUTIN.md"
+  ]
+}

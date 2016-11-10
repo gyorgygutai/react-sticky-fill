@@ -1,0 +1,22 @@
+body {
+  color: #333;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-weight: 200;
+}
+
+.example {
+  padding: 25px 0;
+}
+
+.stickyExample {
+  background-color: tomato;
+}
+
+.content {
+  height: 3000px;
+  background-color: grey;
+}
+
+.stickyExample, .content {
+  padding: 3%;
+}

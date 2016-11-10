@@ -1,0 +1,40 @@
+{
+  "name": "react-sticky-fill",
+  "version": "0.0.0",
+  "description": "A ReactJS wrapper for position:sticky elements using Stickyfill",
+  "main": "./lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:gyorgygutai/react-sticky-fill.git"
+  },
+  "homepage": "",
+  "bugs": "/issues",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "rackt test --single-run --browsers Firefox",
+    "start": "rackt server"
+  },
+  "authors": [
+    "Gyorgy Gutai"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "rackt-cli": "^0.4.0",
+    "react": "^15.0.0",
+    "react-dom": "^15.3.2"
+  },
+  "peerDependencies": {
+    "react": "^0.13.3",
+    "stickyfill": "^1.1.1"
+  },
+  "tags": [
+    ""
+  ],
+  "keywords": [
+    ""
+  ],
+  "dependencies": {
+  }
+}
