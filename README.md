@@ -20,7 +20,7 @@ import Sticky from 'react-sticky-fill'
 
 (
 	<Sticky>
-		<MyComponent>Hey, I'm sticky!</MyComponent>
+		<MyComponent>Hey, I am sticky!</MyComponent>
 	</Sticky>
 )
 ```
