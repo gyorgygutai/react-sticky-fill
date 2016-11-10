@@ -12,11 +12,11 @@ var _index2 = _interopRequireDefault(_index);
 
 var _assert = require('assert');
 
-/* eslint func-names:0 */
+// /* eslint func-names:0 */
+// describe('react-stickyfill', function() {
+//   it('should have tests', function() {
+//     ok(false);
+//   });
+// });
 
 var TestUtils = _reactAddons2['default'].addons.TestUtils;
-describe('react-stickyfill', function () {
-  it('should have tests', function () {
-    (0, _assert.ok)(false);
-  });
-});

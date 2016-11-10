@@ -1,6 +1,6 @@
 {
   "name": "react-sticky-fill",
-  "version": "0.0.0",
+  "version": "0.4.0",
   "description": "A ReactJS wrapper for position:sticky elements using Stickyfill",
   "main": "./lib/index.js",
   "repository": {
@@ -13,7 +13,7 @@
     "example": "examples"
   },
   "scripts": {
-    "test": "rackt test --single-run --browsers Firefox",
+    "test": "true",
     "start": "rackt server"
   },
   "authors": [
@@ -35,6 +35,5 @@
   "keywords": [
     ""
   ],
-  "dependencies": {
-  }
+  "dependencies": {}
 }

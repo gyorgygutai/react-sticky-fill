@@ -125,7 +125,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	    value: function render() {
 	      return _react2['default'].createElement('div', _extends({}, this.props, {
 	        ref: 'sticky',
-	        className: [].concat(['sticky', this.props.className]).join(' ')
+	        style: _extends({
+	          position: '-webkit-sticky',
+	          top: 0
+	        }, this.props.style)
 	      }));
 	    }
 	  }]);
