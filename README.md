@@ -46,7 +46,7 @@ import Sticky from 'react-sticky-fill'
 ```
 
 
-The component passes through every other prop besides the ones shown above.
+The component passes through every other prop, just like the ones shown above.
 
 ## Further reading
 
