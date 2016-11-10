@@ -12,21 +12,13 @@
   "directories": {
     "example": "examples"
   },
-  "scripts": {
-    "test": "true",
-    "start": "rackt server"
-  },
   "authors": [
     "Gyorgy Gutai"
   ],
   "license": "MIT",
-  "devDependencies": {
-    "rackt-cli": "^0.4.0",
-    "react": "^15.0.0",
-    "react-dom": "^15.3.2"
-  },
   "peerDependencies": {
-    "react": "^0.13.3"
+    "react": "^0.13.3",
+    "stickyfill": "^1.1.1"
   },
   "tags": [
     ""
@@ -34,7 +26,5 @@
   "keywords": [
     ""
   ],
-  "dependencies": {
-    "stickyfill": "^1.1.1"
-  }
+  "dependencies": {}
 }
