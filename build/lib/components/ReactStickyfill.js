@@ -52,7 +52,8 @@ var ReactStickyfill = (function (_React$PureComponent) {
         ref: 'sticky',
         style: _extends({
           position: '-webkit-sticky',
-          top: 0
+          top: 0,
+          zIndex: 1
         }, this.props.style)
       }));
     }
