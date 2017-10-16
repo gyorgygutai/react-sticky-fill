@@ -20,6 +20,10 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 var _stickyfill = require('stickyfill');
 
 var _stickyfill2 = _interopRequireDefault(_stickyfill);
@@ -65,8 +69,8 @@ var ReactStickyfill = (function (_React$PureComponent) {
 ReactStickyfill.displayName = 'ReactStickyfill';
 
 ReactStickyfill.propTypes = {
-  children: _react2['default'].PropTypes.element,
-  className: _react2['default'].PropTypes.string
+  children: _propTypes2['default'].element,
+  className: _propTypes2['default'].string
 };
 
 exports['default'] = ReactStickyfill;
