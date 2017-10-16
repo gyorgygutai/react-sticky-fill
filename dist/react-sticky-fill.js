@@ -103,6 +103,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _stickyfill2 = _interopRequireDefault(_stickyfill);
 	
+	var _cssSupports = __webpack_require__(14);
+	
+	var _cssSupports2 = _interopRequireDefault(_cssSupports);
+	
+	_cssSupports2['default'].shim();
+	
 	var stickyfill = (0, _stickyfill2['default'])();
 	
 	var ReactStickyfill = (function (_React$PureComponent) {
@@ -117,22 +123,33 @@ return /******/ (function(modules) { // webpackBootstrap
 	  _createClass(ReactStickyfill, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      stickyfill.add(this.refs.sticky);
+	      stickyfill.add(this.stickyElement);
 	    }
 	  }, {
 	    key: 'componentWillUnmount',
 	    value: function componentWillUnmount() {
-	      stickyfill.remove(this.refs.sticky);
+	      stickyfill.remove(this.stickyElement);
+	    }
+	  }, {
+	    key: '_getPositionStyleValue',
+	    value: function _getPositionStyleValue() {
+	      var isStickySupported = CSS.supports('position', 'sticky');
+	
+	      return isStickySupported ? 'sticky' : '-webkit-sticky';
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var _this = this;
+	
 	      return _react2['default'].createElement('div', _extends({}, this.props, {
-	        ref: 'sticky',
+	        ref: function (el) {
+	          _this.stickyElement = el;
+	        },
 	        style: _extends({
-	          position: '-webkit-sticky',
 	          top: 0,
-	          zIndex: 1
+	          zIndex: 1,
+	          position: this._getPositionStyleValue()
 	        }, this.props.style)
 	      }));
 	    }
@@ -1821,6 +1838,70 @@ return /******/ (function(modules) { // webpackBootstrap
 	        kill: kill
 	    };
 	})
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports) {
+
+	var _cacheSupports = {};
+	
+	function parse(propertyName, reg) {
+	  return propertyName.split(reg).slice(1, -1);
+	}
+	
+	function cssSupports(propertyName, value) {
+	  var style = document.createElement('div').style;
+	
+	  // 1 argument
+	  if (typeof value === 'undefined') {
+	    // The regex will do this '( a:b ) or ( c:d )' => [" a:b ", " c:d "]
+	    var arrOr = parse(propertyName, /(?:^\(|\)\s*or\s*\(|\)$)/gi);
+	    if (arrOr) {
+	      return arrOr.some(function(condition) { return supports.apply(null, condition.split(':')); });
+	    }
+	    var arrAnd = parse(propertyName, /(?:^\(|\)\s*and\s*\(|\)$)/gi);
+	    if (arrAnd) {
+	      return arrAnd.every(function(condition) { return supports.apply(null, condition.split(':')); });
+	    }
+	
+	    style.cssText = propertyName;
+	  // 2 arguments
+	  } else {
+	    style.cssText = propertyName + ':' + value;
+	  }
+	
+	  return !!style.length;
+	}
+	
+	function supports(propertyName, value) {
+	  propertyName = typeof propertyName !== 'undefined' &&
+	    String.prototype.trim.call(propertyName);
+	  value = typeof value !== 'undefined' &&
+	    String.prototype.trim.call(value) || undefined;
+	
+	  if (!propertyName || (arguments.length === 2 && !value)) return false;
+	
+	  var key = [propertyName, value].toString();
+	  if (key in _cacheSupports) {
+	    return _cacheSupports[key];
+	  }
+	
+	  return _cacheSupports[key] = cssSupports(propertyName, value);
+	}
+	
+	function shim() {
+	  if (!('CSS' in window)) {
+	    window.CSS = {};
+	  }
+	
+	  if (!('supports' in window.CSS)) {
+	    window.CSS.supports = supports;
+	  }
+	}
+	
+	module.exports = supports;
+	module.exports.shim = shim;
+
 
 /***/ })
 /******/ ])

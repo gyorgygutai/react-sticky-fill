@@ -28,6 +28,12 @@ var _stickyfill = require('stickyfill');
 
 var _stickyfill2 = _interopRequireDefault(_stickyfill);
 
+var _cssSupports = require('css-supports');
+
+var _cssSupports2 = _interopRequireDefault(_cssSupports);
+
+_cssSupports2['default'].shim();
+
 var stickyfill = (0, _stickyfill2['default'])();
 
 var ReactStickyfill = (function (_React$PureComponent) {
@@ -42,22 +48,33 @@ var ReactStickyfill = (function (_React$PureComponent) {
   _createClass(ReactStickyfill, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      stickyfill.add(this.refs.sticky);
+      stickyfill.add(this.stickyElement);
     }
   }, {
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
-      stickyfill.remove(this.refs.sticky);
+      stickyfill.remove(this.stickyElement);
+    }
+  }, {
+    key: '_getPositionStyleValue',
+    value: function _getPositionStyleValue() {
+      var isStickySupported = CSS.supports('position', 'sticky');
+
+      return isStickySupported ? 'sticky' : '-webkit-sticky';
     }
   }, {
     key: 'render',
     value: function render() {
+      var _this = this;
+
       return _react2['default'].createElement('div', _extends({}, this.props, {
-        ref: 'sticky',
+        ref: function (el) {
+          _this.stickyElement = el;
+        },
         style: _extends({
-          position: '-webkit-sticky',
           top: 0,
-          zIndex: 1
+          zIndex: 1,
+          position: this._getPositionStyleValue()
         }, this.props.style)
       }));
     }
