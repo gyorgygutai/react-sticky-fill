@@ -35,6 +35,7 @@
     ""
   ],
   "dependencies": {
+    "css-supports": "^0.1.1",
     "stickyfill": "^1.1.1"
   }
 }
